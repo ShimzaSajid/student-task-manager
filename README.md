@@ -7,3 +7,5 @@ Run the application with:
     python main.py
 
 Author: Shimza Sajid
+
+Project status: Planning
