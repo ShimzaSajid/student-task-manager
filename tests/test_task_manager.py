@@ -10,7 +10,7 @@ class TestTaskManager(unittest.TestCase):
         task = self.manager.add_task("Study Git")
         self.assertEqual(task["title"], "Study Git")
         self.assertFalse(task["completed"])
-        self.assertEqual(len(self.manager.get_tasks()), 1)
+        self.assertEqual(len(self.manager.get_tasks()), 0)
 
     def test_add_empty_task_rejected(self):
         with self.assertRaises(ValueError):
@@ -25,7 +25,7 @@ class TestTaskManager(unittest.TestCase):
         self.manager.add_task("Study Git")
         self.manager.delete_task(1)
         # Deliberately wrong (expects 1) to produce a FAILED run
-        self.assertEqual(len(self.manager.get_tasks()), 1)
+        self.assertEqual(len(self.manager.get_tasks()), 0)
 
 
 if __name__ == "__main__":
