@@ -4,13 +4,20 @@ class TaskManager:
         self.next_id = 1
 
     def add_task(self, title):
+        if title is None or not title.strip():
+            raise ValueError("Task title cannot be empty.")
+        title = title.strip()
         task = {"id": self.next_id, "title": title, "completed": False}
         self.tasks.append(task)
         self.next_id += 1
         return task
 
     def complete_task(self, task_id):
-        raise NotImplementedError("Coming in feature/complete-task")
+        for task in self.tasks:
+            if task["id"] == task_id:
+                task["completed"] = True
+                return task
+        raise ValueError(f"No task found with ID {task_id}.")
 
     def get_tasks(self):
         return self.tasks

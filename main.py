@@ -12,8 +12,11 @@ def show_menu():
 
 def handle_add(manager):
     title = input("Task title: ")
-    manager.add_task(title)
-    print("Task added.")
+    try:
+        manager.add_task(title)
+        print("Task added.")
+    except ValueError as error:
+        print(f"Error: {error}")
 
 
 def handle_view(manager):
@@ -27,7 +30,15 @@ def handle_view(manager):
 
 
 def handle_complete(manager):
-    print("Not implemented yet.")
+    raw_id = input("Enter task ID to complete: ").strip()
+    if not raw_id.isdigit():
+        print("Error: Please enter a valid number.")
+        return
+    try:
+        task = manager.complete_task(int(raw_id))
+        print(f"Task '{task['title']}' marked as completed.")
+    except ValueError as error:
+        print(f"Error: {error}")
 
 
 def handle_delete(manager):
