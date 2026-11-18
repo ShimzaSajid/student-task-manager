@@ -12,8 +12,11 @@ def show_menu():
 
 def handle_add(manager):
     title = input("Task title: ")
-    manager.add_task(title)
-    print("Task added.")
+    try:
+        manager.add_task(title)
+        print("Task added.")
+    except ValueError as error:
+        print(f"Error: {error}")
 
 
 def handle_view(manager):
