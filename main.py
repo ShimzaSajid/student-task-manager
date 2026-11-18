@@ -31,7 +31,15 @@ def handle_complete(manager):
 
 
 def handle_delete(manager):
-    print("Not implemented yet.")
+    raw_id = input("Enter task ID to delete: ").strip()
+    if not raw_id.isdigit():
+        print("Error: Please enter a valid number.")
+        return
+    try:
+        task = manager.delete_task(int(raw_id))
+        print(f"Task '{task['title']}' deleted.")
+    except ValueError as error:
+        print(f"Error: {error}")
 
 
 def main():

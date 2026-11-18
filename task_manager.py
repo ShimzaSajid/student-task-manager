@@ -16,4 +16,8 @@ class TaskManager:
         return self.tasks
 
     def delete_task(self, task_id):
-        raise NotImplementedError("Coming in feature/delete-task")
+        for task in self.tasks:
+            if task["id"] == task_id:
+                self.tasks.remove(task)
+                return task
+        raise ValueError(f"No task found with ID {task_id}.")
