@@ -24,7 +24,6 @@ class TestTaskManager(unittest.TestCase):
     def test_delete_task(self):
         self.manager.add_task("Study Git")
         self.manager.delete_task(1)
-        # Deliberately wrong (expects 1) to produce a FAILED run
         self.assertEqual(len(self.manager.get_tasks()), 0)
 
 
