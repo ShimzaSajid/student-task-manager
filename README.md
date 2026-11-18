@@ -8,4 +8,4 @@ Run the application with:
 
 Author: Shimza Sajid
 
-Project status: In Development
+Project status: In Development and Testing
