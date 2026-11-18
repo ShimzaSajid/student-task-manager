@@ -10,7 +10,11 @@ class TaskManager:
         return task
 
     def complete_task(self, task_id):
-        raise NotImplementedError("Coming in feature/complete-task")
+        for task in self.tasks:
+            if task["id"] == task_id:
+                task["completed"] = True
+                return task
+        raise ValueError(f"No task found with ID {task_id}.")
 
     def get_tasks(self):
         return self.tasks
